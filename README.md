@@ -49,13 +49,13 @@ Example implementing Style for additional CSS application:
 ```html
 <script type="application/javascript">
     (function(w){
-    let d = w.document, b = d.body, h = d.getElementsByTagName('head')[0];
-    let dedicatedCSS = '.container-reference { /*dedicated-styles*/ }'
-    let styleTag = d.createElement('style');
-    styleTag.setAttribute('type', 'text/css');
-    styleTag.textContent = dedicatedCSS;
-    h.appendChild(styleTag); 
-})(window.top);
+        let d = w.document, b = d.body, h = d.getElementsByTagName('head')[0];
+        let dedicatedCSS = '.container-reference { /*dedicated-styles*/ }'
+        let styleTag = d.createElement('style');
+        styleTag.setAttribute('type', 'text/css');
+        styleTag.textContent = dedicatedCSS;
+        h.appendChild(styleTag); 
+    })(window.top);
 </script>
 ```
 

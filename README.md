@@ -30,6 +30,12 @@ This functionality is made possible because Equativ integrates Custom Script ele
 
 Equativ Custom Script supports only HTML elements. Therefore, the integration of different scripts or elements should always adhere to an HTML context.
 
+
+Example of Pixel:
+```html
+<img src="IMAGE_PIXEL_URL" alt="" width="1px" height="1px" style="border: 0px !important;" >
+```
+
 Example of Script:
 ```html
 <script type="application/javascript">
@@ -39,10 +45,20 @@ Example of Script:
 </script>
 ```
 
-Example of Pixel:
+Example implementing Style for additional CSS application:
 ```html
-<img src="IMAGE_PIXEL_URL" alt="" width="1px" height="1px" style="border: 0px !important;" >
+<script type="application/javascript">
+    (function(w){
+    let d = w.document, b = d.body, h = d.getElementsByTagName('head')[0];
+    let dedicatedCSS = '.container-reference { /*dedicated-styles*/ }'
+    let styleTag = d.createElement('style');
+    styleTag.setAttribute('type', 'text/css');
+    styleTag.textContent = dedicatedCSS;
+    h.appendChild(styleTag); 
+})(window.top);
+</script>
 ```
+
 
 ---
 

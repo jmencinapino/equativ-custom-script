@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository demonstrates the possibilities of using the Equativ Custom Script feature at both the insertion and creative levels.
+This repository demonstrates the possibilities of using the Equativ Custom Script feature at both the insertion and creative levels on EMP.
 
 ## General Use
 
@@ -62,9 +62,42 @@ Example implementing Style for additional CSS application:
 
 ---
 
-## Third-Party Integrations
+## Third-Party Pixel Integrations
 
 A popular application of the Equativ Custom Script is facilitating third-party integrations, particularly for analytics or measurement tools.
+
+The following notes pertain to a standard integration that requires the use of script and noscript HTML tags, in accordance with third-party providers' requirements. These elements must be present within the same scope as the delivered creative.
+
+## Standard Script Integration
+
+Clients typically receive an extract of code from the third-party provider, which includes:
+- A `<script>` tag referencing an external library.
+- A `<noscript>` tag containing a fallback tracking pixel in case the script fails to load.
+
+Example of the provided code:
+
+```html
+<script src="https://cdn.provider.com/library.js?params=true"></script>
+<noscript><img src="https://cdn.provider.com/pixel.jpg?params=true" width="0" height="0"/></noscript>
+```
+
+Given the scope of the Custom Script parameter, this code must be restructured in relation to the `<script>` reference.
+
+This restructuring is necessary because the `<script>` must be implemented within a different scope (as indicated above), whereas the `<noscript>` element can remain unchanged, as it does not require repositioning.
+
+```html
+<script>
+    // Set Script URL information
+    let scriptURL = 'https://cdn.provider.com/library.js?params=true';
+
+    // Function will create the script at the creative scope level
+    !function(){let t=window.parent===window.top?window.top:window.parent;if(!t.document){console.error("dv-custom-target","document-scope-error");return}let e=t.document.createElement("script");e.setAttribute("src",scriptURL),e.async=!0;let o=t.document.body;t.document.querySelector("#[sas_tagId]")?(t.document.querySelector("#[sas_tagId]").appendChild(e),console.log("dv-custom-target","format")):o?(o.appendChild(e),console.log("dv-custom-target","body")):console.error("dv-custom-target","not-found")}();
+</script>
+<!-- MAINTAIN NO SCRIPT -->
+<noscript>
+    <img src='https://cdn.provider.com/pixel.jpg?params=true' width='0' height='0'/>
+</noscript>
+```
 
 ### IAS Viewability Integration
 

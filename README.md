@@ -62,7 +62,7 @@ Example implementing Style for additional CSS application:
 
 ---
 
-## Third-Party Pixel Integrations
+## Third-Party Providers Integrations
 
 A popular application of the Equativ Custom Script is facilitating third-party integrations, particularly for analytics or measurement tools.
 

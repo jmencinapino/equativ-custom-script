@@ -112,7 +112,7 @@ For detailed instructions and example code, please refer to the dedicated reposi
 
 Another common third-party integration is based on **DoubleVerify (DV)**. The setup for this third-party measurement tool is typically intended to provide both impression and viewability measurement.
 
-For detailed instructions and example code, please refer to the dedicated repository: [IAS Viewability Integration](https://github.com/jmencinapino/dv-viewability-integration).
+For detailed instructions and example code, please refer to the dedicated repository: [DoubleVerify Viewability Integration](https://github.com/jmencinapino/dv-viewability-integration).
 
 ---
 ## Disclaimer

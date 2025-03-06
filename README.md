@@ -68,7 +68,7 @@ A popular application of the Equativ Custom Script is facilitating third-party i
 
 The following notes pertain to a standard integration that requires the use of script and noscript HTML tags, in accordance with third-party providers' requirements. These elements must be present within the same scope as the delivered creative.
 
-## Standard Script Integration
+### Third-Party Standard Integration
 
 Clients typically receive an extract of code from the third-party provider, which includes:
 - A `<script>` tag referencing an external library.
@@ -98,19 +98,30 @@ This restructuring is necessary because the `<script>` must be implemented withi
     <img src='https://cdn.provider.com/pixel.jpg?params=true' width='0' height='0'/>
 </noscript>
 ```
+### Third-Party Specific Integration
 
-### IAS Viewability Integration
+Some vendors are commonly integrated at Equativ, and this document provides details on how to integrate some of them, as detailed below.
+
+#### IAS Viewability Integration
 
 One notable example is the integration of **Integral Ad Science (IAS)** for additional viewability measurements. This setup often requires a custom implementation using the Equativ Custom Script.
 
 For detailed instructions and example code, please refer to the dedicated repository: [IAS Viewability Integration](https://github.com/jmencinapino/ias-viewability-integration).
 
+#### Double Verify Integration
+
+Another common third-party integration is based on **DoubleVerify (DV)**. The setup for this third-party measurement tool is typically intended to provide both impression and viewability measurement.
+
+For detailed instructions and example code, please refer to the dedicated repository: [IAS Viewability Integration](https://github.com/jmencinapino/dv-viewability-integration).
 ---
+## Disclaimer
 
 > [!IMPORTANT]  
-> Always test third-party integrations in a controlled environment before deploying to production. Ensure compliance with privacy regulations (e.g., GDPR, CCPA) when handling user data. Additionally, confirm that the integration aligns with the [official Custom Script field documentation](https://help.smartadserver.com/s/article/Configuring-creatives#:~:text=unchecked%20by%20default.-,Custom%20script%20(for%20creatives),-You%20can%20add).
+> Third-party integrations must be tested in a controlled environment before using them as part of the Equativ's creative configuration.
+> Ensure compliance with privacy regulations (e.g., GDPR, CCPA) when handling user data, and confirm that the integration aligns with the [official Custom Script feature documentation](https://help.smartadserver.com/s/article/Configuring-creatives#:~:text=unchecked%20by%20default.-,Custom%20script%20(for%20creatives),-You%20can%20add).
 
 > [!WARNING]  
-> Custom scripts can introduce security risks or performance degradation if not implemented properly. Exercise caution and consult the Equativ support team if unsure.
+> External scripts can introduce security risks or performance degradation if not implemented properly.
+> Equativ is only responsible for executing the Custom Script feature. Any actions performed during the script execution itself are not the responsibility of Equativ.
 
 ---
